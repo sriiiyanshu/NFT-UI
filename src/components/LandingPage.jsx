@@ -193,7 +193,7 @@ const FeaturedArtwork = () => {
 
   return (
     <section className="container mx-auto px-6 py-20">
-      <div className="grid lg:grid-cols-2 gap-12 items-center bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-xl rounded-3xl p-8 lg:p-12 border border-purple-500/20">
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition"></div>
           <img 
@@ -258,31 +258,31 @@ const TrendingSection = () => {
     },
     {
       id: 2,
-      title: "Ferhat Deniz",
-      subtitle: "Golden Flower",
-      price: "2.3 ETH",
-      image: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=500&h=500&fit=crop"
-    },
-    {
-      id: 3,
-      title: "Polina Kondrashova",
-      subtitle: "Golden Flower",
-      price: "2.3 ETH",
-      image: "https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=500&h=500&fit=crop"
-    },
-    {
-      id: 4,
       title: "Javier Miranda",
       subtitle: "Golden Flower",
       price: "2.3 ETH",
       image: "https://images.unsplash.com/photo-1635322966219-b75ed372eb01?w=500&h=500&fit=crop"
     },
     {
-      id: 5,
+      id: 3,
       title: "Milad Fakurian",
       subtitle: "Golden Flower",
       price: "2.3 ETH",
       image: "https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=500&h=500&fit=crop"
+    },
+    {
+      id: 4,
+      title: "Ferhat Deniz",
+      subtitle: "Golden Flower",
+      price: "2.3 ETH",
+      image: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=500&h=500&fit=crop"
+    },
+    {
+      id: 5,
+      title: "Polina Kondrashova",
+      subtitle: "Golden Flower",
+      price: "2.3 ETH",
+      image: "https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=500&h=500&fit=crop"
     },
     {
       id: 6,
@@ -302,10 +302,20 @@ const TrendingSection = () => {
         </p>
       </div>
       
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {artworks.map((artwork, index) => (
-          <ArtworkCard key={artwork.id} artwork={artwork} large={index === 0 || index === 1} />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Left Column */}
+        <div className="space-y-6">
+          <ArtworkCard artwork={artworks[0]} large />
+          <ArtworkCard artwork={artworks[1]} />
+          <ArtworkCard artwork={artworks[2]} />
+        </div>
+        
+        {/* Right Column */}
+        <div className="space-y-6">
+          <ArtworkCard artwork={artworks[3]} />
+          <ArtworkCard artwork={artworks[4]} />
+          <ArtworkCard artwork={artworks[5]} />
+        </div>
       </div>
       
       <div className="flex justify-end mt-8">
@@ -321,21 +331,28 @@ const TrendingSection = () => {
 // Artwork Card Component
 const ArtworkCard = ({ artwork, large }) => {
   return (
-    <div className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900/40 to-black/60 backdrop-blur-lg border border-purple-500/20 hover:border-purple-500/40 transition ${large ? 'md:row-span-2' : ''}`}>
-      <div className={`relative ${large ? 'h-96 md:h-full' : 'h-64'} overflow-hidden`}>
+    <div className={`group relative overflow-hidden rounded-2xl ${large ? 'h-[500px]' : 'h-64'}`}>
+      <div className="relative w-full h-full overflow-hidden">
         <img 
           src={artwork.image} 
           alt={artwork.title}
           className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
         />
-        <div className="absolute top-4 right-4 bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold">
-          {artwork.price}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        
+        {/* Content overlay */}
+        <div className="absolute inset-0 p-6 flex flex-col justify-between">
+          <div className="flex justify-end">
+            <div className="bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold text-sm">
+              {artwork.price}
+            </div>
+          </div>
+          
+          <div>
+            <h3 className="text-white text-xl font-semibold font-heading mb-1">{artwork.title}</h3>
+            <p className="text-gray-300 text-sm">{artwork.subtitle}</p>
+          </div>
         </div>
-      </div>
-      
-      <div className="p-6">
-        <h3 className="text-white text-xl font-semibold mb-1 font-heading">{artwork.title}</h3>
-        <p className="text-purple-300 text-sm">{artwork.subtitle}</p>
       </div>
     </div>
   );
@@ -383,15 +400,8 @@ const PopularArtists = () => {
 const CommunitySection = () => {
   return (
     <section className="container mx-auto px-6 py-20">
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-900 via-purple-800 to-pink-900 p-12 lg:p-20">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=600&fit=crop")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'blur(2px)'
-          }}></div>
-        </div>
+      <div className="relative overflow-hidden rounded-3xl p-12 lg:p-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-purple-800/20 to-pink-900/30 backdrop-blur-sm"></div>
         
         <div className="relative grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative w-full h-96 rounded-2xl overflow-hidden">
@@ -420,50 +430,32 @@ const CommunitySection = () => {
 // Footer Component
 const Footer = () => {
   return (
-    <footer className="bg-black/50 backdrop-blur-lg border-t border-purple-500/20">
+    <footer className="bg-black/30 backdrop-blur-lg border-t border-purple-500/10">
       <div className="container mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           <div className="lg:col-span-1">
-            <h3 className="text-white text-2xl font-bold mb-4 font-heading">NFTme</h3>
+            <h3 className="text-white text-[36px] font-semibold mb-4 font-heading leading-[125%]">NFTme</h3>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Explore</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition">Art</a></li>
-              <li><a href="#" className="hover:text-white transition">Collectibles</a></li>
-              <li><a href="#" className="hover:text-white transition">Music</a></li>
-            </ul>
+            <h4 className="text-white font-medium mb-4 text-base leading-[26px]">Explore</h4>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Marketplace</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition">All NFTs</a></li>
-              <li><a href="#" className="hover:text-white transition">New</a></li>
-              <li><a href="#" className="hover:text-white transition">Trending</a></li>
-            </ul>
+            <h4 className="text-white font-medium mb-4 text-base leading-[26px]">Marketplace</h4>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Artists</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition">Top Sellers</a></li>
-              <li><a href="#" className="hover:text-white transition">Verified</a></li>
-            </ul>
+            <h4 className="text-white font-medium mb-4 text-base leading-[26px]">Artists</h4>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition">Support</a></li>
-              <li><a href="#" className="hover:text-white transition">Help Center</a></li>
-            </ul>
+            <h4 className="text-white font-medium mb-4 text-base leading-[26px]">Contact</h4>
           </div>
         </div>
         
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-purple-500/20">
-          <div className="flex space-x-6 mb-4 md:mb-0">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-purple-500/10">
+          <div className="flex space-x-6 mb-4 md:mb-0 text-base font-medium leading-[26px]">
             <a href="#" className="text-gray-400 hover:text-white transition">Privacy policy</a>
             <span className="text-gray-600">|</span>
             <p className="text-gray-400">Copyright @ Kartik Bansal 2022. All Rights Reserved.</p>
