@@ -1,6 +1,6 @@
 # NFT Marketplace Landing Page
 
-A modern, responsive NFT marketplace landing page built with React and Tailwind CSS.
+A modern, responsive NFT marketplace website built with React, React Router, and Tailwind CSS.
 
 ## Features
 
@@ -11,6 +11,15 @@ A modern, responsive NFT marketplace landing page built with React and Tailwind 
 - 🎭 Artist showcase section
 - 💜 Purple/pink gradient theme matching the design
 - ⚡ Built with Vite for fast development
+- 🧭 Multi-page navigation with React Router
+
+## Pages
+
+- **Home** (`/`) - Landing page with hero, featured artwork, trending NFTs, popular artists, and community sections
+- **About** (`/about`) - Company story, team, values, and statistics
+- **Features** (`/features`) - Platform features, how it works, and capabilities
+- **Pricing** (`/pricing`) - Pricing plans with monthly/annual toggle and FAQs
+- **Contact** (`/contact`) - Contact form and information
 
 ## Project Structure
 
@@ -18,8 +27,15 @@ A modern, responsive NFT marketplace landing page built with React and Tailwind 
 NFT UI/
 ├── src/
 │   ├── components/
-│   │   └── LandingPage.jsx    # Main landing page component
-│   ├── App.jsx                 # App wrapper
+│   │   ├── LandingPage.jsx    # Home page content
+│   │   ├── Navbar.jsx          # Shared navigation bar
+│   │   └── Footer.jsx          # Shared footer
+│   ├── pages/
+│   │   ├── About.jsx           # About page
+│   │   ├── Features.jsx        # Features page
+│   │   ├── Pricing.jsx         # Pricing page
+│   │   └── Contact.jsx         # Contact page
+│   ├── App.jsx                 # App with routing
 │   ├── main.jsx                # Entry point
 │   └── index.css               # Global styles
 ├── index.html
@@ -87,8 +103,9 @@ Update text content directly in the component sections.
 ## Technologies
 
 - React 18
+- React Router DOM 6
 - Tailwind CSS 3
-- Vite 5
+- Vite 6
 - Lucide React (for icons)
 
 ## Responsive Breakpoints
