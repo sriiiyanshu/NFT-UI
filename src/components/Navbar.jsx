@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
-  
+
   const isActive = (path) => {
     return location.pathname === path;
   };
@@ -20,35 +20,21 @@ const Navbar = () => {
 
       <div className="flex items-center space-x-8">
         <div className="hidden md:flex space-x-8 text-gray-300">
-          <Link 
-            to="/about" 
-            className={`hover:text-white transition ${isActive('/about') ? 'text-white font-semibold' : ''}`}
-          >
+          <Link to="/about" className={`hover:text-white transition ${isActive("/about") ? "text-white font-semibold" : ""}`}>
             About
           </Link>
-          <Link 
-            to="/features" 
-            className={`hover:text-white transition ${isActive('/features') ? 'text-white font-semibold' : ''}`}
-          >
+          <Link to="/features" className={`hover:text-white transition ${isActive("/features") ? "text-white font-semibold" : ""}`}>
             Features
           </Link>
-          <Link 
-            to="/pricing" 
-            className={`hover:text-white transition ${isActive('/pricing') ? 'text-white font-semibold' : ''}`}
-          >
+          <Link to="/pricing" className={`hover:text-white transition ${isActive("/pricing") ? "text-white font-semibold" : ""}`}>
             Pricing
           </Link>
-          <Link 
-            to="/contact" 
-            className={`hover:text-white transition ${isActive('/contact') ? 'text-white font-semibold' : ''}`}
-          >
+          <Link to="/contact" className={`hover:text-white transition ${isActive("/contact") ? "text-white font-semibold" : ""}`}>
             Contact
           </Link>
         </div>
 
-        <button className="bg-white text-black px-6 py-2.5 rounded-lg font-medium hover:bg-gray-100 transition">
-          Connect Wallet
-        </button>
+        <button className="bg-white text-black px-6 py-2.5 rounded-lg font-medium hover:bg-gray-100 transition">Connect Wallet</button>
       </div>
     </nav>
   );

@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import React, { useState } from "react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
   const contactInfo = [
@@ -27,20 +27,20 @@ const Contact = () => {
       icon: <Mail className="w-8 h-8" />,
       title: "Email Us",
       details: ["support@nftme.com", "sales@nftme.com"],
-      description: "We'll respond within 24 hours"
+      description: "We'll respond within 24 hours",
     },
     {
       icon: <Phone className="w-8 h-8" />,
       title: "Call Us",
       details: ["+1 (555) 123-4567", "+1 (555) 765-4321"],
-      description: "Mon-Fri 9am-6pm EST"
+      description: "Mon-Fri 9am-6pm EST",
     },
     {
       icon: <MapPin className="w-8 h-8" />,
       title: "Visit Us",
       details: ["123 NFT Street", "San Francisco, CA 94102"],
-      description: "By appointment only"
-    }
+      description: "By appointment only",
+    },
   ];
 
   return (
@@ -48,12 +48,8 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 font-heading">
-            Get In Touch
-          </h1>
-          <p className="text-xl text-gray-300 leading-relaxed">
-            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-          </p>
+          <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 font-heading">Get In Touch</h1>
+          <p className="text-xl text-gray-300 leading-relaxed">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
         </div>
       </section>
 
@@ -65,13 +61,13 @@ const Contact = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-2xl backdrop-blur-sm group-hover:from-purple-900/40 group-hover:to-pink-900/40 transition"></div>
               <div className="relative p-8 text-center space-y-4">
                 <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600">
-                  <div className="text-white">
-                    {info.icon}
-                  </div>
+                  <div className="text-white">{info.icon}</div>
                 </div>
                 <h3 className="text-2xl font-bold text-white font-heading">{info.title}</h3>
                 {info.details.map((detail, idx) => (
-                  <p key={idx} className="text-gray-300">{detail}</p>
+                  <p key={idx} className="text-gray-300">
+                    {detail}
+                  </p>
                 ))}
                 <p className="text-sm text-gray-400">{info.description}</p>
               </div>
@@ -86,24 +82,16 @@ const Contact = () => {
           {/* Left Column - Info */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-5xl font-bold text-white mb-6 font-heading">
-                Let's Talk
-              </h2>
+              <h2 className="text-5xl font-bold text-white mb-6 font-heading">Let's Talk</h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
                 Whether you're a creator looking to mint your first NFT, a collector searching for unique pieces, or a business exploring NFT solutions, we're here to help.
               </p>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Fill out the form and our team will get back to you within 24 hours.
-              </p>
+              <p className="text-gray-300 text-lg leading-relaxed">Fill out the form and our team will get back to you within 24 hours.</p>
             </div>
 
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-3xl blur-2xl"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop"
-                alt="Contact"
-                className="relative rounded-3xl w-full h-auto shadow-2xl"
-              />
+              <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop" alt="Contact" className="relative rounded-3xl w-full h-auto shadow-2xl" />
             </div>
           </div>
 
