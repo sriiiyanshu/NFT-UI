@@ -82,17 +82,17 @@ const Pricing = () => {
 
       {/* Pricing Cards */}
       <section className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto items-start">
           {plans.map((plan, index) => (
-            <div key={index} className={`relative ${plan.popular ? "md:-mt-8" : ""}`}>
+            <div key={index} className="relative pt-8">
               {plan.popular && (
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold text-sm flex items-center space-x-2">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-semibold text-sm flex items-center space-x-2 z-10">
                   <Star className="w-4 h-4 fill-current" />
                   <span>Most Popular</span>
                 </div>
               )}
 
-              <div className={`relative overflow-hidden rounded-3xl ${plan.popular ? "border-2 border-purple-500" : ""}`}>
+              <div className={`relative overflow-hidden rounded-3xl h-full ${plan.popular ? "border-2 border-purple-500" : ""}`}>
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur-sm"></div>
 
                 <div className="relative p-8 space-y-6">
