@@ -32,16 +32,19 @@ NFT UI/
 ## Installation
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Start the development server:
+
 ```bash
 npm run dev
 ```
 
 3. Build for production:
+
 ```bash
 npm run build
 ```
@@ -49,7 +52,9 @@ npm run build
 ## Components
 
 ### LandingPage
+
 Main component that includes:
+
 - **Navbar** - Navigation with wallet connect button
 - **HeroSection** - Main banner with stats and featured NFT cards
 - **FeaturedArtwork** - Highlighted artwork with live auction timer
@@ -61,7 +66,9 @@ Main component that includes:
 ## Customization
 
 ### Colors
+
 Edit `tailwind.config.js` to change the color scheme:
+
 ```js
 colors: {
   'nft-purple': '#8b5cf6',
@@ -70,9 +77,11 @@ colors: {
 ```
 
 ### Images
+
 Replace placeholder images in `LandingPage.jsx` with your own artwork URLs.
 
 ### Content
+
 Update text content directly in the component sections.
 
 ## Technologies
